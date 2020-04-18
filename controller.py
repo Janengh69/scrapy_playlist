@@ -13,6 +13,7 @@ class Controller:
     def scrapy_info(self):
         self.request.getLinkOnYouTube()
         self.request.getSimilarLinks()
+
         self.request.hrefOnSimilarSongs = list(set(self.request.hrefOnSimilarSongs))
 
     def call_request(self):
@@ -21,6 +22,6 @@ class Controller:
             self.scrapy_info()
         self.resultRelatedLinks = self.request.hrefOnSimilarSongs
         self.request.hrefOnSimilarSongs = list(set(self.request.hrefOnSimilarSongs))
-
         self.request.getSimilarYouTubeLinks(self.resultRelatedLinks)
         self.resultLinks = self.request.hrefOnCurrentSong
+        print(self.request.hrefOnCurrentSong)

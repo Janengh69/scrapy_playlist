@@ -11,13 +11,17 @@ class Request:
 
     def getLinkOnYouTube(self):
         for x in self.soup.findAll('a', {'class': 'header-new-playlink'}):
-            self.hrefOnCurrentSong.append(x['href'])
-        self.hrefOnCurrentSong = list(set(self.hrefOnCurrentSong))
-        print(self.hrefOnCurrentSong)
+            self.hrefOnCurrentSong.append({x['href']: self.getGenre()})
+            break
+        # self.hrefOnCurrentSong = list(set(self.hrefOnCurrentSong))
 
     def getRequest(self, request):
-        result = req.get(request).text
-        self.soup = BeautifulSoup(result, 'html.parser')
+        try:
+            result = req.get(request).text
+            self.soup = BeautifulSoup(result, 'html.parser')
+        except req.exceptions.ConnectionError:
+            print("Error")
+
 
 
     def getSimilarLinks(self):
@@ -28,6 +32,11 @@ class Request:
         for elem in links:
             self.getRequest(self.baseUrl+elem)
             self.getLinkOnYouTube()
-        print(self.hrefOnCurrentSong)
 
+       # print(self.hrefOnCurrentSong)
+
+    def getGenre(self):
+        for x in self.soup.findAll('li', {'class': 'tag'}):
+            # print(x.text)
+            return x.text
 
