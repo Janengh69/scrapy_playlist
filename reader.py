@@ -1,6 +1,6 @@
 import xml.etree.ElementTree as etree
 
-class Reader:
+class XMLReader:
     def __init__(self, filename):
         self.doc = etree.parse(filename).getroot()
         self.info = list()

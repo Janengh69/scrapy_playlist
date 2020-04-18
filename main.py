@@ -1,8 +1,5 @@
-from reader import Reader
-from request import Request
+from controller import Controller
 
 if __name__ == "__main__":
-    reader: Reader = Reader("links.xml")
-    reader.output();
-    request: Request = Request(reader.info)
-    request.getRequest()
+    controller:Controller = Controller()
+    controller.call_request()
