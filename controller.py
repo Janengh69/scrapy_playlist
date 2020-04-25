@@ -5,7 +5,7 @@ from request import Request
 class Controller:
     def __init__(self):
         self.reader: XMLReader = XMLReader("links.xml")
-        self.reader.output()
+        self.reader.to_list()
         self.request: Request = Request(self.reader.info)
         self.resultLinks = list()
         self.resultRelatedLinks = list()
@@ -25,3 +25,15 @@ class Controller:
         self.request.getSimilarYouTubeLinks(self.resultRelatedLinks)
         self.resultLinks = self.request.hrefOnCurrentSong
         print(self.request.hrefOnCurrentSong)
+        self.request.hrefOnCurrentSong = self.sort_by_genre()
+        self.write_to_xml("result.xml")
+
+
+    def sort_by_genre(self):
+        sort = self.request.hrefOnCurrentSong
+        sort = sorted(sort,  key = lambda i: i['genre'])
+        return sort
+
+
+    def write_to_xml(self, filename):
+        self.reader.output(filename, self.request.hrefOnCurrentSong)

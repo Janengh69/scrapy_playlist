@@ -1,7 +1,10 @@
+from typing import List, Any
+
 from bs4 import BeautifulSoup
 import requests as req
 
 class Request:
+
     def __init__(self, request_list):
         self.baseUrl = 'http://last.fm'
         self.soup = ''
@@ -11,11 +14,16 @@ class Request:
 
     def getLinkOnYouTube(self):
         for x in self.soup.findAll('a', {'class': 'header-new-playlink'}):
-            self.hrefOnCurrentSong.append({x['href']: self.getGenre()})
+            self.hrefOnCurrentSong.append({"link" : x['href'], 'genre': self.getGenre()})
             break
         # self.hrefOnCurrentSong = list(set(self.hrefOnCurrentSong))
 
     def getRequest(self, request):
+        '''
+        sends get-request and the result wraps in beautiful soup
+        :param request:
+        :return: none
+        '''
         try:
             result = req.get(request).text
             self.soup = BeautifulSoup(result, 'html.parser')
@@ -25,6 +33,10 @@ class Request:
 
 
     def getSimilarLinks(self):
+        '''
+        gets similar links from the page
+        :return: none
+        '''
         for x in self.soup.findAll('a', {'class': 'js-link-block-cover-link link-block-cover-link'}):
             self.hrefOnSimilarSongs.append(x['href'])
 
@@ -36,6 +48,10 @@ class Request:
        # print(self.hrefOnCurrentSong)
 
     def getGenre(self):
+        '''
+        gets genre
+        :return: the first genre that is on the page
+        '''
         for x in self.soup.findAll('li', {'class': 'tag'}):
             # print(x.text)
             return x.text
