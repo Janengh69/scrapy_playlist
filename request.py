@@ -13,6 +13,9 @@ class Request:
         self.hrefOnSimilarSongs = list()
 
     def getLinkOnYouTube(self):
+        '''
+        :return:
+        '''
         for x in self.soup.findAll('a', {'class': 'header-new-playlink'}):
             self.hrefOnCurrentSong.append({"link" : x['href'], 'genre': self.getGenre()})
             break

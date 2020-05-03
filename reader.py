@@ -9,6 +9,7 @@ class XMLReader:
 
     def to_list(self):
         for elem in self.doc:
+            print(elem.text)
             self.info.append(elem.text)
 
     def output(self, filename, lst):
