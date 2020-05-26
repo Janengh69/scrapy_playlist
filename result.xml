@@ -1,17 +1,1 @@
-<root>
-    <doc>
-    <linkOnSong genre="grunge">https://www.youtube.com/watch?v=hTWKbfoikeg</linkOnSong>
-    <linkOnSong genre="grunge">https://www.youtube.com/watch?v=qM0zINtulhM</linkOnSong>
-    <linkOnSong genre="grunge">https://www.youtube.com/watch?v=3mbBbFH9fAg</linkOnSong>
-    <linkOnSong genre="grunge">https://www.youtube.com/watch?v=MS91knuzoOA</linkOnSong>
-    <linkOnSong genre="grunge">https://www.youtube.com/watch?v=Nco_kh8xJDs</linkOnSong>
-    <linkOnSong genre="grunge">https://www.youtube.com/watch?v=vabnZ9-ex7o</linkOnSong>
-    <linkOnSong genre="grunge">https://www.youtube.com/watch?v=pkcJEvMcnEg</linkOnSong>
-    <linkOnSong genre="grunge">https://www.youtube.com/watch?v=TAqZb52sgpU</linkOnSong>
-    <linkOnSong genre="rock">https://www.youtube.com/watch?v=lwlogyj7nFE</linkOnSong>
-    <linkOnSong genre="rock">https://www.youtube.com/watch?v=6Ejga4kJUts</linkOnSong>
-    <linkOnSong genre="rock">https://www.youtube.com/watch?v=eBG7P-K-r1Y</linkOnSong>
-    <linkOnSong genre="rock">https://www.youtube.com/watch?v=xwtdhWltSIg</linkOnSong>
-    <linkOnSong genre="rock">https://www.youtube.com/watch?v=SBjQ9tuuTJQ</linkOnSong>
-</doc>
-</root>
+<root><doc><linkOnSong genre="grunge">https://www.youtube.com/watch?v=hTWKbfoikeg</linkOnSong><linkOnSong genre="grunge">https://www.youtube.com/watch?v=hTWKbfoikeg</linkOnSong><linkOnSong genre="grunge">https://www.youtube.com/watch?v=hTWKbfoikeg</linkOnSong><linkOnSong genre="grunge">https://www.youtube.com/watch?v=vabnZ9-ex7o</linkOnSong></doc></root>

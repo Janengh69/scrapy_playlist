@@ -32,23 +32,21 @@ class Request:
             self.soup = BeautifulSoup(result, 'html.parser')
         except req.exceptions.ConnectionError:
             print("Error")
-
-
-
     def getSimilarLinks(self):
         '''
         gets similar links from the page
         :return: none
         '''
+        countSongs = 0;
         for x in self.soup.findAll('a', {'class': 'js-link-block-cover-link link-block-cover-link'}):
+            if countSongs == 3: break
+            countSongs+=1;
             self.hrefOnSimilarSongs.append(x['href'])
 
     def getSimilarYouTubeLinks(self, links):
         for elem in links:
             self.getRequest(self.baseUrl+elem)
             self.getLinkOnYouTube()
-
-       # print(self.hrefOnCurrentSong)
 
     def getGenre(self):
         '''
@@ -58,4 +56,3 @@ class Request:
         for x in self.soup.findAll('li', {'class': 'tag'}):
             # print(x.text)
             return x.text
-

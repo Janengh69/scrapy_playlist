@@ -20,3 +20,4 @@ class XMLReader:
             ET.SubElement(doc, "linkOnSong", genre=elem['genre']).text = elem['link']
         tree = ET.ElementTree(root)
         tree.write(filename)
+        return True
